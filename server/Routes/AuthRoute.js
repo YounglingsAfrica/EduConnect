@@ -3,9 +3,15 @@ const router = require("express").Router();
 const { resetPassword } = require("../Controllers/ResetControl");
 const { updatePassword } = require("../Controllers/UpdateController");
 
-router.post("/signup", Signup);
-router.post("/login", Login);
-router.post("/reset-password", resetPassword);
-router.post("/update-password", updatePassword);
+router.post("https://sleepy-erin-trout.cyclic.app/signup", Signup);
+router.post("https://sleepy-erin-trout.cyclic.app/login", Login);
+router.post(
+  "https://sleepy-erin-trout.cyclic.app/reset-password",
+  resetPassword
+);
+router.post(
+  "https://sleepy-erin-trout.cyclic.app/update-password",
+  updatePassword
+);
 
 module.exports = router;

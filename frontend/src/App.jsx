@@ -24,8 +24,8 @@ function App() {
   return (
     <div>
       <Navbar />
-      <Routes>
-        <Route path="/hero" element={<Hero />} />
+      <Routes basename="/">
+        <Route path="/" element={<Hero />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/study" element={<StudyWithUs />} />
         <Route path="/updates" element={<LatestUpdates />} />

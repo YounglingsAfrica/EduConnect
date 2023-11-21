@@ -10,7 +10,7 @@ const Hero = () => {
   const isMobileScreen = window.innerWidth < 768;
 
   return (
-    <div className="relative w-full h-screen bg-main py-6 md:py-24">
+    <div className="relative w-full h-screen py-6 md:py-24">
       <div className="md:max-w-[1480px] max-w-[540px] mx-auto w-full h-full flex flex-col md:flex-row justify-center md:justify-between items-center">
         <div className="w-full md:w-1/2">
           <div className="absolute inset-0 overflow-hidden">
