@@ -67,17 +67,20 @@ const ApplicationForm = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:4000/apply-student", {
-        email,
-        idnumber,
-        dateOfBirth,
-        firstName,
-        lastName,
-        street,
-        city,
-        state,
-        zip,
-      });
+      const response = await axios.post(
+        "https://sleepy-erin-trout.cyclic.app/apply-student",
+        {
+          email,
+          idnumber,
+          dateOfBirth,
+          firstName,
+          lastName,
+          street,
+          city,
+          state,
+          zip,
+        }
+      );
 
       setMessage("Application submitted successfully");
       setTimeout(() => {

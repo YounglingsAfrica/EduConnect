@@ -31,7 +31,7 @@ app.use(
 app.use(cookieParser());
 app.use(express.json());
 
-app.get("/users", async (req, res) => {
+app.get("https://sleepy-erin-trout.cyclic.app/users", async (req, res) => {
   try {
     const users = await User.find();
     res.json(users);
@@ -42,15 +42,18 @@ app.get("/users", async (req, res) => {
 });
 
 // Endpoint to delete all users
-app.delete("/delete-users", async (_, res) => {
-  try {
-    await User.deleteMany();
-    res.json({ message: "All users deleted successfully" });
-  } catch (error) {
-    console.error("Error deleting users:", error);
-    res.status(500).json({ error: "Failed to delete users" });
+app.delete(
+  "https://sleepy-erin-trout.cyclic.app/delete-users",
+  async (_, res) => {
+    try {
+      await User.deleteMany();
+      res.json({ message: "All users deleted successfully" });
+    } catch (error) {
+      console.error("Error deleting users:", error);
+      res.status(500).json({ error: "Failed to delete users" });
+    }
   }
-});
+);
 
 // Endpoint to check if email exists
 app.get("/check-email/:email", async (req, res) => {

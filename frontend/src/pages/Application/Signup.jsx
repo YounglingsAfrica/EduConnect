@@ -31,7 +31,7 @@ function SignupS() {
         } else {
           try {
             const response = await axios.get(
-              `http://localhost:4000/check-email/${value}`
+              `https://sleepy-erin-trout.cyclic.app/check-email/${value}`
             );
             if (response.data.exists) {
               validationError = "Email already exists";
@@ -50,7 +50,7 @@ function SignupS() {
         } else {
           try {
             const response = await axios.get(
-              `http://localhost:4000/check-idnumber/${value}`
+              `https://sleepy-erin-trout.cyclic.app/check-idnumber/${value}`
             );
             if (response.data.exists) {
               validationError = "ID number already exists";
@@ -98,13 +98,16 @@ function SignupS() {
 
     if (formIsValid) {
       try {
-        const response = await axios.post("http://localhost:4000/signup", {
-          email,
-          username,
-          password,
-          confirmPassword,
-          idnumber,
-        });
+        const response = await axios.post(
+          "https://sleepy-erin-trout.cyclic.app/signup",
+          {
+            email,
+            username,
+            password,
+            confirmPassword,
+            idnumber,
+          }
+        );
 
         // Handle successful response
         const token = response.data.token;
