@@ -56,38 +56,56 @@ app.delete(
 );
 
 // Endpoint to check if email exists
-app.get("/check-email/:email", async (req, res) => {
-  try {
-    const { email } = req.params;
-    const existingUser = await User.findOne({ email });
-    res.json({ exists: !!existingUser });
-  } catch (error) {
-    console.error("Error checking email:", error);
-    res.status(500).json({ error: "Failed to check email" });
+app.get(
+  "https://sleepy-erin-trout.cyclic.app/check-email/:email",
+  async (req, res) => {
+    try {
+      const { email } = req.params;
+      const existingUser = await User.findOne({ email });
+      res.json({ exists: !!existingUser });
+    } catch (error) {
+      console.error("Error checking email:", error);
+      res.status(500).json({ error: "Failed to check email" });
+    }
   }
-});
+);
 
 // Endpoint to check if ID number exists
-app.get("/check-idnumber/:idnumber", async (req, res) => {
-  try {
-    const { idnumber } = req.params;
-    const existingUser = await User.findOne({ idnumber });
-    res.json({ exists: !!existingUser });
-  } catch (error) {
-    console.error("Error checking ID number:", error);
-    res.status(500).json({ error: "Failed to check ID number" });
+app.get(
+  "https://sleepy-erin-trout.cyclic.app/check-idnumber/:idnumber",
+  async (req, res) => {
+    try {
+      const { idnumber } = req.params;
+      const existingUser = await User.findOne({ idnumber });
+      res.json({ exists: !!existingUser });
+    } catch (error) {
+      console.error("Error checking ID number:", error);
+      res.status(500).json({ error: "Failed to check ID number" });
+    }
   }
-});
+);
 
-app.post("/password/reset", resetPassword);
-app.post("/update-password", updatePassword);
-app.use("/apply-student", submitApplication);
+app.post("https://sleepy-erin-trout.cyclic.app/password/reset", resetPassword);
+app.post(
+  "https://sleepy-erin-trout.cyclic.app/update-password",
+  updatePassword
+);
+app.use(
+  "https://sleepy-erin-trout.cyclic.app/apply-student",
+  submitApplication
+);
 
 // Endpoint to delete an application by ID
-app.delete("/apply-delete/idnumber/:idnumber", deleteApplication);
+app.delete(
+  "https://sleepy-erin-trout.cyclic.app/apply-delete/idnumber/:idnumber",
+  deleteApplication
+);
 
 // Endpoint to get an application by ID
-app.get("/apply-get/idnumber/:idnumber", getApplication);
+app.get(
+  "https://sleepy-erin-trout.cyclic.app/apply-get/idnumber/:idnumber",
+  getApplication
+);
 
 app.use("/", authRoute);
 
